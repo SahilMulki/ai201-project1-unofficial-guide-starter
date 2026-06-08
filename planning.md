@@ -44,10 +44,13 @@ The sources are a mix of planet terp's API, official school sources, reddit thre
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
 **Chunk size:**
+300-400 tokens
 
 **Overlap:**
+50 tokens
 
 **Reasoning:**
+The information I will get from PlanetTerp reviews and Reddit comments are likely to be short. I think that 300-400 tokens should be enough to capture them completely. 50 tokens should be enough to handle overlap.
 
 ---
 
@@ -60,10 +63,13 @@ The sources are a mix of planet terp's API, official school sources, reddit thre
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
+I will be using all-MiniLM-L6-v2 via sentence-transformers.
 
 **Top-k:**
+5-7 chunks
 
 **Production tradeoff reflection:**
+The main tradeoffs to weigh in choosing a different embedding model would be domain accuracy with UMD specific information like course codes and latency because higher dimension embeddings are more accurate but take more time than lower dimension embeddings.
 
 ---
 
@@ -74,13 +80,13 @@ The sources are a mix of planet terp's API, official school sources, reddit thre
      is right or wrong. "What are good dining halls?" is too vague.
      "What do students say about wait times at [dining hall name] during lunch?" is testable. -->
 
-| #   | Question | Expected answer |
-| --- | -------- | --------------- |
-| 1   |          |                 |
-| 2   |          |                 |
-| 3   |          |                 |
-| 4   |          |                 |
-| 5   |          |                 |
+| #   | Question                                                                              | Expected answer                                                                                                                                           |
+| --- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Who is the best professor for CMSC131?                                                | Nelson Padua-Perez is the best professor for CMSC131 as he has high reviews on PlanetTerp.                                                                |
+| 2   | What is the average GPA for students in Algorithms (CMSC351)                          | According to PlanetTerp, the average GPA for students in CMSC351 is between 2.8-3.1 Many students consider this course to be a difficult weed out course. |
+| 3   | What Distributive Studies Gen Ed categories do UMD undergrads have to complete?       | UMD undergrads must complete five categories of Gen Eds: DSSP, DSHU, DSNS, DSNL, and DSBS. This is according to UMD's Gen Ed Guide.                       |
+| 4   | What do premed students at UMD recommend for their biology or chemistry requirements? | A UMD Reddit thread for premed students BSCI105 because of the simplicity of the chemistry sequencing.                                                    |
+| 5   | Which CMSC courses do students most commonly describe as "weed out" courses at UMD?   | According to Reddit threads and low average GPA from PlanetTerp, courses like CMSC131, CSMC132, and CMSC351 are week out courses.                         |
 
 ---
 
@@ -90,9 +96,9 @@ The sources are a mix of planet terp's API, official school sources, reddit thre
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
+1. I think there could be some challenges with missing source attribution, because it can be hard sometimes to determine where an answer came from. This is especially true if the answer was informed by several sources.
 
-2.
+2. Another challenge I expect with reasoning is that old data might inform reasoning when it is really not relevant any more. Some of the sources I plan to use have data about UMD that spans back many years, and oftentimes that data will not be very helpful.
 
 ---
 
@@ -103,6 +109,8 @@ The sources are a mix of planet terp's API, official school sources, reddit thre
      Label each stage with the tool or library you're using.
      You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
+
+![Pipeline Architecture](diagram.png)
 
 ---
 
@@ -119,7 +127,10 @@ The sources are a mix of planet terp's API, official school sources, reddit thre
      with my specified chunk size and overlap" is a plan. -->
 
 **Milestone 3 — Ingestion and chunking:**
+I plan to use Claude Code. For input I will provide it the documents table that I want to use and other sections from thie planning doc. I expect Claude Code to help me produce code to get data from PlanetTerp's API and to scrape data from the other sources. I plan on verifying the output by checking random samples of chunks personally.
 
 **Milestone 4 — Embedding and retrieval:**
+I plan to use Claude Code. The input will be the retrieval approach section of this doc. I expect it to help me create the pipeline to embed and store information in a vector database. I will verify Claude's results by running questions through the retrieval logic to see if the results are relevant.
 
 **Milestone 5 — Generation and interface:**
+I plan to use Claude Code and either Groq's API or Claude's API depending on cost. The input the evaluation plan section from this document. I expect the output to be logic which formats chunks into a prompt, calls the LLM API, and returns an answer. Maybe I will have some basic interface as well. I will verify the output by running the evaluation questions and determining if the output matches the expected answer.

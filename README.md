@@ -49,10 +49,13 @@ Course and professor reviews at the University of Maryland, College Park
      - What your final chunk count was across all documents -->
 
 **Chunk size:**
+300-400 tokens
 
 **Overlap:**
+50 tokens
 
-**Why these choices fit your documents:**
+**Why these choices fit your documents:**'
+The information I will get from PlanetTerp reviews and Reddit comments are likely to be short. I think that 300-400 tokens should be enough to capture them completely. 50 tokens should be enough to handle overlap.
 
 **Final chunk count:**
 
@@ -67,8 +70,10 @@ Course and professor reviews at the University of Maryland, College Park
      latency, and local vs. API-hosted. -->
 
 **Model used:**
+I will be using all-MiniLM-L6-v2 via sentence-transformers.
 
 **Production tradeoff reflection:**
+The main tradeoffs to weigh in choosing a different embedding model would be domain accuracy with UMD specific information like course codes and latency because higher dimension embeddings are more accurate but take more time than lower dimension embeddings.
 
 ---
 
