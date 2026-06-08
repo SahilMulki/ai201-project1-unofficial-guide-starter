@@ -80,13 +80,13 @@ The main tradeoffs to weigh in choosing a different embedding model would be dom
      is right or wrong. "What are good dining halls?" is too vague.
      "What do students say about wait times at [dining hall name] during lunch?" is testable. -->
 
-| #   | Question                                                                              | Expected answer                                                                                                                                           |
-| --- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Who is the best professor for CMSC131?                                                | Nelson Padua-Perez is the best professor for CMSC131 as he has high reviews on PlanetTerp.                                                                |
-| 2   | What is the average GPA for students in Algorithms (CMSC351)                          | According to PlanetTerp, the average GPA for students in CMSC351 is between 2.8-3.1 Many students consider this course to be a difficult weed out course. |
-| 3   | What Distributive Studies Gen Ed categories do UMD undergrads have to complete?       | UMD undergrads must complete five categories of Gen Eds: DSSP, DSHU, DSNS, DSNL, and DSBS. This is according to UMD's Gen Ed Guide.                       |
-| 4   | What do premed students at UMD recommend for their biology or chemistry requirements? | A UMD Reddit thread for premed students BSCI105 because of the simplicity of the chemistry sequencing.                                                    |
-| 5   | Which CMSC courses do students most commonly describe as "weed out" courses at UMD?   | According to Reddit threads and low average GPA from PlanetTerp, courses like CMSC131, CSMC132, and CMSC351 are week out courses.                         |
+| #   | Question                                                                        | Expected answer                                                                                                                                                                                       |
+| --- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Who is the best professor for CMSC131?                                          | Nelson Padua-Perez is the best professor for CMSC131 as he has high reviews on PlanetTerp.                                                                                                            |
+| 2   | What is the average grade for students in Algorithms (CMSC351)?                 | According to PlanetTerp, the average grade for students in CMSC351 is between 50-60 Many students consider this course to be a difficult weed out course.                                             |
+| 3   | What Distributive Studies Gen Ed categories do UMD undergrads have to complete? | UMD undergrads must complete five categories of Gen Eds: DSSP, DSHU, DSNS, DSNL, and DSBS. This is according to UMD's Gen Ed Guide.                                                                   |
+| 4   | What computer science professors should I avoid taking?                         | According to PlanetTerp, Professor Larry Herman has negative reviews for many of the classes he teaches.                                                                                              |
+| 5   | What is the distributive studies gen ed requirement?                            | Distributive studies is a gen ed requirement that teches students about a variety of disciplines, the methods they use, the kinds of questions they ask, and their standards for judging the answers. |
 
 ---
 
